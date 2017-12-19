@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.Map.Entry"%>
+<%@page import="ie.gmit.sw.Job"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMI Dictionary LookUp</title>
+</head>
+<body>
+<center>
+	<table>
+		<tr>
+			<td>
+				<h1>RMI Dictionary LookUp</h1>
+				<form action = "DictionaryServlet" method = "post">
+				   Enter Word: 
+				   <input type = "text" name = "word" />
+				   <br />
+				   <input type = "submit" value = "Submit" />
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				
+  				<% Map<String,Job> jobList = (HashMap<String, Job>)request.getAttribute("jobList");
+ 				if(jobList == null){
+ 				
+ 				}
+ 				else
+ 				{
+					 for(Entry<String, Job> entry : jobList.entrySet())
+					 {
+					 Job j = entry.getValue();
+					 out.print("Id: " + j.getID());
+					 out.print("<br/>");
+					 out.print("Name: " + j.getMsg());
+					 out.print("<br/>");
+					 out.print("<br/>");
+				 }
+ 				}
+				%>
+				
+				<%//String jobOutput=(String)request.getAttribute("job");
+				//out.print("Job ID in Queue"+jobOutput);%>
+				
+			</td>
+		</tr>
+	</table>
+</center>
+
+</body>
+</html>

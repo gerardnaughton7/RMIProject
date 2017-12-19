@@ -1,0 +1,40 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>RMI Dictionary LookUp</title>
+</head>
+<body>
+<center>
+	<table>
+		<tr>
+			<td>
+				<h1>RMI Dictionary LookUp</h1>
+				<form action = "DictionaryServlet" method = "post">
+				   Enter Word: 
+				   <input type = "text" name = "word" />
+				   <br />
+				   <input type = "submit" value = "Submit" />
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<!-- <c:forEach items="${inQueue}" var="inQueue">
+    			<c:out value="${article.id} ${article.title}"/><br />
+  				</c:forEach>
+  				
+				<%//String jobOutput=(String)request.getAttribute("job");
+				//out.print("Job ID in Queue"+jobOutput);%>-->
+				<%//String jobOutput=(String)request.getAttribute("job");
+				//out.print("Job ID in Queue"+jobOutput);%>
+				<c:out value="$job" var="job"/>
+			</td>
+		</tr>
+	</table>
+</center>
+
+</body>
+</html>
