@@ -16,7 +16,7 @@ public class CreateDictionary {
 	private String word = null;
 	private String line = null;
 	
-	public CreateDictionary() throws IOException{
+	public void inputCSV() throws IOException{
 		
 		//BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile)));
 		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile)));

@@ -14,6 +14,7 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 	protected DictionaryServiceImpl() throws RemoteException, IOException {
 		super();
 		cd = new CreateDictionary();
+		cd.inputCSV();
 		dictionaryMap = cd.getDict();
 		// TODO Auto-generated constructor stub
 	}

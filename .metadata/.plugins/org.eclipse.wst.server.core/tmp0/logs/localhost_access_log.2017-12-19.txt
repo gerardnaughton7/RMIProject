@@ -92,3 +92,6 @@
 127.0.0.1 - - [19/Dec/2017:19:55:07 +0000] "GET / HTTP/1.1" 404 1074
 0:0:0:0:0:0:0:1 - - [19/Dec/2017:19:55:08 +0000] "GET /RMI_Client/index.jsp HTTP/1.1" 200 778
 0:0:0:0:0:0:0:1 - - [19/Dec/2017:19:55:20 +0000] "POST /RMI_Client/DictionaryServlet HTTP/1.1" 200 819
+127.0.0.1 - - [19/Dec/2017:20:09:53 +0000] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [19/Dec/2017:20:09:53 +0000] "GET /RMI_Client/index.jsp HTTP/1.1" 200 778
+0:0:0:0:0:0:0:1 - - [19/Dec/2017:20:09:58 +0000] "POST /RMI_Client/DictionaryServlet HTTP/1.1" 200 817
