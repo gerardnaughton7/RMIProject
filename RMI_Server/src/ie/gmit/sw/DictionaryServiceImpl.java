@@ -7,28 +7,27 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DictionaryServiceImpl extends UnicastRemoteObject implements DictionaryService {
+	//Create variables 
 	private static final long serialVersionUID = 1L;
 	private CreateDictionary cd;
 	HashMap<String, List<String>> dictionaryMap;
-
+	
+	// When instance is created, create dictionary in constructor
 	protected DictionaryServiceImpl() throws RemoteException, IOException {
 		super();
 		cd = new CreateDictionary();
 		cd.inputCSV();
 		dictionaryMap = cd.getDict();
-		// TODO Auto-generated constructor stub
 	}
-
+	
+	//Public method used by client to search words in the dictionary. if word does exist return definition other wise return message 
 	@Override
 	public String getDefinition(String word) throws RemoteException {
-		// TODO Auto-generated method stub
 		if(dictionaryMap.containsKey(word.toLowerCase()))
 		{
 			return dictionaryMap.get(word.toLowerCase()).toString();
-		}else
-		{
-			return "Sorry that Word does not exist try again";
 		}
+		return "Sorry that Word does not exist try again";
 	}
 	
 }

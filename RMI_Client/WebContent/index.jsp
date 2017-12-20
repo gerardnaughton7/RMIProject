@@ -14,45 +14,19 @@
 </head>
 <body>
 <center>
-	<table border="2px solid black">
-		<tr>
+	<table  border="2px solid black" width= 600px>
+		<tr >
 			<td>
-				<h1>RMI Dictionary LookUp</h1>
+				<h1 align="center">RMI Dictionary LookUp</h1>
 				<form action = "DictionaryServlet" method = "post">
-				   Enter Word: 
-				   <input type = "text" name = "word" />
-				   <br />
-				   <input type = "submit" value = "Submit" />
+				   <center>
+					   <p >Enter Word:</p> 
+					   <input type = "text" name = "word" />
+					   <br />
+					   <br />
+					   <input type = "submit" value = "Submit" />
+				   </center>
 				</form>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<h3>Jobs in Queue</h3>
-  				<%BlockingQueue<Job> jobList = (ArrayBlockingQueue<Job>)request.getAttribute("jobList");
- 				if(jobList == null){
- 				
- 				}
- 				else
- 				{
- 					Iterator<Job> it = jobList.iterator();
- 				    while(it.hasNext()){
- 				     out.print("<br/>");
- 				     out.print("Id: " + it.next().toString());
-					 out.print("<br/>");
-					 out.print("<br/>");
- 				    }
-					 
-				}
- 				
-				%>
-				
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<h3>Meaning of your Word</h3>
-				
 			</td>
 		</tr>
 	</table>

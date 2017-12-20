@@ -23,13 +23,12 @@ public class DictionaryServlet extends HttpServlet {
 	
 	private BlockingQueue<Job> inQueue = new ArrayBlockingQueue<Job>(10);
     private int giveID; 
-    private String definition;
+    private String definition = null;
     /**
      * @see HttpServlet#HttpServlet()
      */
     public DictionaryServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -42,28 +41,19 @@ public class DictionaryServlet extends HttpServlet {
 		try {
 			inQueue.put(j);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		PrintWriter out = response.getWriter();
-		
-		Iterator<Job> it = inQueue.iterator();
-	    while(it.hasNext()){
-	      System.out.println(it.next().getID());
-	    }
-		
+		System.out.println(giveID);
 		String word = request.getParameter("word");
 		try {
 			DictionaryService ds = (DictionaryService) Naming.lookup("rmi://127.0.0.1:1099/dictionaryService");
 			definition = ds.getDefinition(word);
 		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		System.out.println(definition);
-		request.setAttribute("jobList", inQueue);
-		javax.servlet.RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");
+		request.setAttribute("word", word);
+		request.setAttribute("definition", definition);
+		javax.servlet.RequestDispatcher rd=request.getRequestDispatcher("/response.jsp");
 		rd.forward(request, response);
 	}
 

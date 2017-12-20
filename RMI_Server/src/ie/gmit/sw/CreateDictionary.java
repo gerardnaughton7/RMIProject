@@ -11,64 +11,75 @@ import java.util.List;
 
 public class CreateDictionary {
 	private String csvFile = "Resources/dictionary.csv";
-	private StringBuilder wordDefinition = new StringBuilder();
+	private StringBuilder definition = new StringBuilder();
 	private HashMap<String, List<String>> dictionary = new HashMap<String, List<String>>();
 	private String word = null;
 	private String line = null;
 	
 	public void inputCSV() throws IOException{
 		
-		//BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile)));
-		BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile)));
-		//http://textfiles.com/directory.html
-		//Loop through the file line by line
-		while((line = br.readLine()) != null){
-	
+		BufferedReader bReader = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile)));
+		
+		while((line = bReader.readLine()) != null){
+			//if line start with " take in the first word as key for hashmap
 			if(line.startsWith("\"")){
-				//if we're not on the first line, do this
+				//if we're not on the first line, do this. calls the addDefinition function which adds the word and definition to the dictionary hashmap
 				if(word != null){
-					addDefinition(word.toLowerCase(), wordDefinition.toString());
-					wordDefinition = new StringBuilder();	//reset string builder
+					addDefinition(word.toLowerCase(), definition.toString());
+					definition = new StringBuilder();	//reset string builder
 				}
-				//otherwise find the end of the word as an integer
+				//otherwise find the end of the word
 				int endOfWord = line.indexOf('"', 1);
 				
-				word = line.substring(1,  endOfWord);//makes a word from one quote to the next double quote
-				wordDefinition.append((line.substring(endOfWord + 2)));//add the rest of the line to wordDefiniton 2 chars after end of the word
-				wordDefinition.append("\n");//add a new line
+				//makes a word from one quote to the next double quote
+				word = line.substring(1,  endOfWord);
+				//add the rest of the line to wordDefiniton 2 chars after end of the word
+				definition.append((line.substring(endOfWord + 2)));
+				definition.append("\n");//add a new line
 
 			}
-			else{
-				wordDefinition.append((line));//other wise append the full line of text
-				wordDefinition.append("\n");
+			else{//other wise keep adding line/text to definition
+				definition.append((line));
+				definition.append("\n");
 			}
 		}//while
-		br.close();
+		bReader.close();
 
 	}
 	
 	//add the word and the definition to the dictionary hash map
 	public void addDefinition(String word, String def){
+		//check if dictionary already has word and if so add definition to existing definition
 		if(dictionary.containsKey(word)){
 			List<String> definition = dictionary.get(word);
 			definition.add(def);
 			dictionary.put(word, definition);
 		}
+		//else add word and definition to dictionary
 		else{
 			List<String> definition = new ArrayList<String>();
 			definition.add(def);
 			dictionary.put(word, definition);
 		}
-	}//addDefinition()
+	}
 	
+	//get definition for specific word
 	public List<String> get(String definition) {
 		return dictionary.get(definition);
 	}
 	
-	public HashMap<String,List<String>> getDict()
+	//Insert new word and definition to dictionary
+	public String insertWord(String word, String def)
 	{
-		
-		return this.dictionary;
-		
+		List<String> definition = new ArrayList<String>();
+		definition.add(def);
+		dictionary.put(word, definition);
+		return "Word and Definition have been Added to Dictionary";
+	}
+	
+	// get whole dictionary
+	public HashMap<String,List<String>> getDict()
+	{	
+		return this.dictionary;	
 	}
 }
