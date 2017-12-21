@@ -34,6 +34,28 @@ overall system architecture:
 
 ## Technology <a name = "tech"></a>
 
+The Technology I used for my project are as follows: JSP(Java Servlet Pages), Java Servlets, Apache Tomcat and RMI(Remote Method Invocation). The IDE I used was Eclipse JEE(Java Enterprise Edition).
+Here is a short summary of each.
+
+### JSP
+<p align="center"><img src="img/jsp.png" width="300" length="300"></p>
+
+
+### Java Servlets
+<p align="center"><img src="img/javaservlet.png" width="300" length="300"></p>
+A servlet is a Java programming language class that is used to extend the capabilities of servers that host applications accessed by means of a request-response programming model. Although servlets can respond to any type of request, they are commonly used to extend the applications hosted by web servers. For such applications, Java Servlet technology defines HTTP-specific servlet classes.
+
+### Apache Tomcat
+<p align="center"><img src="img/apache.png" width="300" length="300"></p>
+The Apache Tomcat® software is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies and provides a "pure Java" HTTP web server environment in which Java code can run.
+
+### RMI
+<p align="center"><img src="img/rmi.png" width="300" length="300"></p>
+The Java Remote Method Invocation (RMI) system allows an object running in one Java virtual machine to invoke methods on an object running in another Java virtual machine. RMI provides for remote communication between programs written in the Java programming language.
+
+### Eclipse JEE
+<p align="center"><img src="img/java_ee.png" width="300" length="300"></p>
+Eclipse IDE is an integrated development environment (IDE) used in computer programming, and is the most widely used Java IDE. It contains a base workspace and an extensible plug-in system for customizing the environment. Eclipse is written mostly in Java and its primary use is for developing Java applications, but it may also be used to develop applications in other programming languages via plug-ins. The Eclipse JEE(Java Enterprise Edition) version comes with pre-installed plug-ins which better serves working with databases and web applications. 
 
 ## How to run Repositiory <a name = "repo"></a>
 
@@ -42,3 +64,10 @@ overall system architecture:
 
 
 ## References <a name = "ref"></a>
+
+JSP: [http://flask.pocoo.org/](http://flask.pocoo.org/)
+JavaServlets: [https://docs.oracle.com/javaee/5/tutorial/doc/bnafe.html](https://docs.oracle.com/javaee/5/tutorial/doc/bnafe.html)
+Apache Tomcat: [http://tomcat.apache.org/](http://tomcat.apache.org/)
+RMI: [https://docs.oracle.com/javase/tutorial/rmi/index.html](https://docs.oracle.com/javase/tutorial/rmi/index.html)
+Eclipse JEE: [https://www.eclipse.org/](https://www.eclipse.org/)
+
