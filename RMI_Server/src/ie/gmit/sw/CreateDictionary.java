@@ -10,12 +10,14 @@ import java.util.List;
 
 
 public class CreateDictionary {
+	//variables
 	private String csvFile = "Resources/dictionary.csv";
 	private StringBuilder definition = new StringBuilder();
 	private HashMap<String, List<String>> dictionary = new HashMap<String, List<String>>();
 	private String word = null;
 	private String line = null;
 	
+	//inputCSV method . puts csv file into hashmap
 	public void inputCSV() throws IOException{
 		
 		BufferedReader bReader = new BufferedReader(new InputStreamReader(new FileInputStream(csvFile)));
@@ -69,12 +71,11 @@ public class CreateDictionary {
 	}
 	
 	//Insert new word and definition to dictionary
-	public String insertWord(String word, String def)
+	public void insertWord(String word, String def)
 	{
 		List<String> definition = new ArrayList<String>();
 		definition.add(def);
 		dictionary.put(word, definition);
-		return "Word and Definition have been Added to Dictionary";
 	}
 	
 	// get whole dictionary

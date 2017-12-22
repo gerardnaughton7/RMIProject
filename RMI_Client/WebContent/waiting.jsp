@@ -7,14 +7,24 @@
 <title>Waiting Page</title>
 </head>
 <body>
-	<table border="2px solid black" width= 600px>
-		<tr>
-			<td>
-				<h1>Dictionary Service</h1>
-				<br/>
-				<h3>Waiting for Response .........</h3>
-			</td>
-		</tr>
-	</table>
+	<center>
+		<table border="2px solid black" width= 600px>
+			<tr>
+				<td>
+					<form name="doGetForm" method="get" action="DictionaryServlet">
+						<input name="ID" value=<%=request.getAttribute("ID") %> type="hidden">
+					</form>
+					<h1>Dictionary Service</h1>
+					<br/>
+					<h3>Waiting for Response .........</h3>
+				</td>
+			</tr>
+		</table>
+	</center>
+	<script type="text/javascript">
+	
+	document.doGetForm.submit();
+	
+	</script>
 </body>
 </html>

@@ -29,5 +29,13 @@ public class DictionaryServiceImpl extends UnicastRemoteObject implements Dictio
 		}
 		return "Sorry that Word does not exist try again";
 	}
+
+	//created a add method in rmi but was unable to implement in time for client
+	@Override
+	public void insertWord(String word, String def) throws RemoteException {
+		// TODO Auto-generated method stub
+		insertWord(word,def);
+		
+	}
 	
 }

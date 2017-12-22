@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="ie.gmit.sw.Job"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,22 +13,17 @@
 			<tr>
 				<td>
 					<h1 align="center">Dictionary Service</h1>
+					
 					<br/>
 					<h3>Response:</h3>
 							<%
-							String word = (String)request.getAttribute("word");
-							String definition = (String)request.getAttribute("definition");
+							Job result = (Job)request.getAttribute("result");
 							
-							if(definition == null)
-							{
 								
-							}
-							else
-							{
-								out.print("Word: " + word);
-								out.print("<br/>");
-								out.print(definition);
-							}
+							out.print("Word: " + result.getMsg() + " With Job ID: "+ result.getID());
+							out.print("<br/>");
+							out.print(result.getDef());
+							
 							%>
 					<br/>
 					<br/>		
@@ -36,5 +32,10 @@
 			</tr>
 		</table>
 	</center>
+	<script type="text/javascript">
+	
+	document.doGetForm.submit();
+	
+	</script>
 </body>
 </html>
